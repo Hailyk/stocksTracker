@@ -1,0 +1,26 @@
+{
+  "name": "stocktracker",
+  "version": "0.0.1",
+  "description": "tracks, sells, and buys stocks.",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiahaok/stocksTracker.git"
+  },
+  "keywords": [
+    "stocks"
+  ],
+  "author": "@jiahaok",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jiahaok/stocksTracker/issues"
+  },
+  "homepage": "https://github.com/jiahaok/stocksTracker#readme",
+  "dependencies": {
+    "jsonfile": "^4.0.0",
+    "request": "^2.82.0"
+  }
+}
