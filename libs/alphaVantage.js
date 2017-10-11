@@ -12,10 +12,10 @@ function alphaVantage(apiKey, interval, full){
 }
 
 function requestData(symbol, callback){
-    if(symbol == undefined){
+    if(symbol === undefined){
         callback(new Error("No symbol specified"));
     }
-    if(this.interval == undefined){
+    if(this.interval === undefined){
         this.interval = "15min";
     }
     
@@ -34,8 +34,8 @@ function requestData(symbol, callback){
         if(error){
             return callback(error);
         }
-        if(response.statusCode != 200){
-            return callback(new Error("Error while requesting data from alphaVentage: /n"+response));
+        if(response.statusCode !== 200){
+            return callback(new Error("Error while requesting data from alphaVentage: /n"+ response +"/n"+"body"));
         }
         
     });
