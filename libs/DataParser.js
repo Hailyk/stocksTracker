@@ -4,7 +4,7 @@ class DataParser {
     // @param data Object, alphaVantage time series data
     constructor(data){
     this.meta = data["Meta Data"];
-    this.data = data["Time Series (" + this.meta.interval + ")"];
+    this.data = data["Time Series (" + this.meta["4. Interval"] + ")"];
     this.parsedData = {};
     }
 
@@ -40,7 +40,7 @@ class DataParser {
         for (let i = 0; i < this.parsedData.dataLength; i++) {
             let key = keyArray[i];
             let innerJson = this.data[key];
-            parsedData[i] = this.innerDataParser(keyArray[i], innerJson);
+            parsedData[i] = this.constructor.innerDataParser(keyArray[i], innerJson);
         }
         this.parsedData.timeSeriesData = parsedData;
         return null;
