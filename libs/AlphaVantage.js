@@ -4,14 +4,18 @@ const request = require('request'); //https://www.npmjs.com/package/request
 
 class AlphaVantage {
 
-// @constructor
-// @parma apiKey alphaVantage API key
+    // @constructor
+    // @parma apiKey String, alphaVantage API key
+    // @parma interval String, 1min, 5min, 15min, 30min, 60min 
     constructor(apiKey, interval, full) {
         this.key = apiKey;
         this.interval = interval;
         this.full = full;
     }
-
+    
+    // get data from alphaVantage
+    // @parma symbol String, stock symbol
+    // @parma callback Function
     requestData(symbol, callback) {
         if (symbol === undefined) {
             callback(new Error("No symbol specified"));

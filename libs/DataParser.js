@@ -1,4 +1,5 @@
 'use strict';
+
 class DataParser {
     // @constructor
     // @param data Object, alphaVantage time series data
