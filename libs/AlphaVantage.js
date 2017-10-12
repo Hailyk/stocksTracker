@@ -15,7 +15,9 @@ class AlphaVantage {
     
     // get data from alphaVantage
     // @parma symbol String, stock symbol
-    // @parma callback Function
+    // @parma callback Function, Function:
+    // @Callback parma error Error Object
+    // @Callback parma data Json Object
     requestData(symbol, callback) {
         if (symbol === undefined) {
             callback(new Error("No symbol specified"));
@@ -28,21 +30,25 @@ class AlphaVantage {
         url += "&symbol=" + symbol;
         url += "&interval=" + this.interval;
         if (this.full) {
-            url += "outputsize=compact";
+            url += "&outputsize=compact";
         }
         else {
-            url += "outputsize=compact";
+            url += "&outputsize=compact";
         }
-        url += "datatype=json";
-
+        url += "&datatype=json";
+        console.log(Date.now());
         request(url, function (error, response, body) {
+            console.log(Date.now());
             if (error) {
                 return callback(error);
             }
-            if (response.statusCode !== 200) {
-                return callback(new Error("Error while requesting data from alphaVentage: /n" + response + "/n" + "body"));
+            else if (response.statusCode !== 200) {
+                return callback(new Error("Error while requesting data from alphaVentage: /n" + response + "/n" + body));
             }
-
+            else{
+                console.log("data"+data);
+                return callback(null,data);
+            }
         });
     }
 }

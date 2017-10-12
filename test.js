@@ -10,4 +10,5 @@ function importTest(name, path){
 
 describe('Stock Tracker Unit Test',()=>{
     importTest('DataParser','./test/dataParser.js');
+    importTest('AlphaVantage','./test/alphaVantage.js');
 });
