@@ -36,9 +36,9 @@ class AlphaVantage {
             url += "&outputsize=compact";
         }
         url += "&datatype=json";
-        console.log(Date.now());
+        url += "&apikey="+this.key;
         request(url, function (error, response, body) {
-            console.log(Date.now());
+            body = JSON.parse(body);
             if (error) {
                 return callback(error);
             }
@@ -46,8 +46,7 @@ class AlphaVantage {
                 return callback(new Error("Error while requesting data from alphaVentage: /n" + response + "/n" + body));
             }
             else{
-                console.log("data"+data);
-                return callback(null,data);
+                return callback(null,body);
             }
         });
     }
